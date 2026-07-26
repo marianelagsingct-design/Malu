@@ -1,4 +1,4 @@
-/* ===================================================
+⁸/* ===================================================
    1. FUENTE POPPINS Y CONFIGURACIÓN BASE
    =================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -240,12 +240,13 @@ input[type="checkbox"] {
   margin-right: 8px;
 }
 
+
 /* ===================================================
-   6. BOTONES GENERALES
+   6. BOTONES GENERALES Y ACCIONES (FIX APLICAR FILTROS)
    =================================================== */
-button, .btn {
+button, .btn, input[type="submit"], input[type="button"] {
   font-family: var(--font-main);
-  height: 50px;
+  height: 48px;
   padding: 0 20px;
   border-radius: var(--radius-btn);
   font-weight: 600;
@@ -261,24 +262,36 @@ button, .btn {
   transition: all 0.2s ease;
 }
 
-/* Botón Azul (+ Nueva herramienta, Aplicar filtros, Guardar) */
+/* Fuerza el color azul y letras blancas en el botón de Aplicar Filtros y Principales */
 #btn-nueva-herramienta,
-#btn-aplicar-filtros,
+.btn-primary,
 button[type="submit"],
-.btn-primary {
-  background-color: var(--primary);
+button[onclick*="aplicar"],
+button[onclick*="filtrar"],
+button:not([type="reset"]):not([id*="limpiar"]):not([class*="cancelar"]):not([class*="limpiar"]) {
+  background-color: var(--primary) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 12px rgba(36, 150, 219, 0.25);
+  box-shadow: 0 4px 12px rgba(36, 150, 219, 0.25) !important;
 }
 
-/* Botón Rojo (Cancelar / Limpiar) */
-button[id*="cancelar"],
-button[id*="limpiar"],
-button[type="reset"] {
-  background-color: #FFFFFF;
-  color: var(--danger) !important;
-  border: 1.5px solid var(--danger);
+/* Efecto hover azul oscuro */
+#btn-nueva-herramienta:hover,
+.btn-primary:hover,
+button[type="submit"]:hover {
+  background-color: var(--primary-dark) !important;
 }
+
+/* Botón Limpiar / Cancelar (Blanco con borde y letra roja) */
+button[type="reset"],
+button[id*="limpiar"],
+button[class*="limpiar"],
+button[class*="cancelar"] {
+  background-color: #FFFFFF !important;
+  color: var(--danger) !important;
+  border: 1.5px solid var(--danger) !important;
+  box-shadow: none !important;
+}
+
 
 /* ===================================================
    7. PESTAÑAS (INFORMACIÓN / HISTORIAL)
